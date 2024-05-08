@@ -1,0 +1,35 @@
+{
+  "name": "@uniiem/typescript-lib-template",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "TypeScript Library Template",
+  "keywords": [],
+  "author": "HoshinoSuzumi <master@uniiem.com>",
+  "license": "MIT",
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc",
+    "release": "bumpp && npm publish",
+    "test": "vitest",
+    "bench": "vitest bench",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "bumpp": "^9.4.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vitest": "^1.4.0"
+  }
+}
