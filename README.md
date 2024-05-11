@@ -17,13 +17,22 @@ npm install @uniiem/zip-pseudo-encryption
 ## Usage
 
 ```typescript
-import { detectZipPseudoEncryption } from '@uniiem/zip-pseudo-encryption';
+import { 
+  detectZipPseudoEncryption,
+  generateZipPseudoEncryption
+} from '@uniiem/zip-pseudo-encryption';
 
 // receive a File object
 const file = new File([...], 'file.zip', { type: 'application/zip' });
 
+// detection
 detectZipPseudoEncryption(file).then((result) => {
   console.log(result); // "normal" | "encrypted" | "pseudo" | "broken" | "unknown"
+});
+
+// generation
+generateZipPseudoEncryption(file).then(f => {
+  // f is a new File object with pseudo-encryption
 });
 ```
 

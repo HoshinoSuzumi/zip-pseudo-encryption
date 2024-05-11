@@ -1,5 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { detectZipPseudoEncryption } from "../../src";
+import {
+  detectZipPseudoEncryption,
+  generateZipPseudoEncryption,
+} from "../../src";
 import fs from "fs";
 import { log } from "console";
 
@@ -10,7 +13,9 @@ describe("pseudo_encryption", () => {
       "encrypted.zip",
       { type: "application/zip" }
     );
-    detectZipPseudoEncryption(encryptedZip).then((res) => expect(res).toBe("encrypted"));
+    detectZipPseudoEncryption(encryptedZip).then((res) =>
+      expect(res).toBe("encrypted")
+    );
   });
 
   it("should be normal", () => {
@@ -19,7 +24,9 @@ describe("pseudo_encryption", () => {
       "normal.zip",
       { type: "application/zip" }
     );
-    detectZipPseudoEncryption(normalZip).then((res) => expect(res).toBe("normal"));
+    detectZipPseudoEncryption(normalZip).then((res) =>
+      expect(res).toBe("normal")
+    );
   });
 
   it("should be pseudo encryption", () => {
@@ -28,6 +35,28 @@ describe("pseudo_encryption", () => {
       "encrypted.zip",
       { type: "application/zip" }
     );
-    detectZipPseudoEncryption(pseudoZip).then((res) => expect(res).toBe("pseudo"));
+    detectZipPseudoEncryption(pseudoZip).then((res) =>
+      expect(res).toBe("pseudo")
+    );
+  });
+
+  it("should generate pseudo encryption", () => {
+    const normalZip = new File(
+      [fs.readFileSync("test/files/normal.zip")],
+      "normal.zip",
+      { type: "application/zip" }
+    );
+    const pseudoZip = new File(
+      [fs.readFileSync("test/files/pseudo.zip")],
+      "normal.zip",
+      { type: "application/zip" }
+    );
+    generateZipPseudoEncryption(normalZip)
+      .then(async (res) => {
+        expect(res).toBeInstanceOf(File);
+      })
+      .catch((err) => {
+        log(err);
+      });
   });
 });

@@ -95,4 +95,25 @@ const check_zip = (file: File) =>
     reader.readAsArrayBuffer(file);
   });
 
-export { check_zip };
+const generate = (file: File) =>
+  new Promise<File>(async (resolve, reject) => {
+    const isNormalZip = (await check_zip(file)) === "normal";
+    if (!isNormalZip) return reject("Not a normal zip file");
+    const reader = new FileReader();
+    reader.onload = () => {
+      const arrayBuffer = reader.result as ArrayBuffer;
+      const buffer = new Uint8Array(arrayBuffer);
+
+      const blockIndexs = searchSubarrayAll(buffer, TAG_CONTENT_BLOCK);
+      const newBuffer = new Uint8Array(buffer);
+      for (const blockIndex of blockIndexs) {
+        newBuffer.set(FLAG_TRUE, blockIndex + 8);
+      }
+      const newFile = new File([newBuffer], file.name, { type: file.type });
+      resolve(newFile);
+    };
+    reader.onerror = reject;
+    reader.readAsArrayBuffer(file);
+  });
+
+export { check_zip, generate };
