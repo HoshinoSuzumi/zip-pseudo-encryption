@@ -1,7 +1,7 @@
 {
   "name": "@uniiem/zip-pseudo-encryption",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Zip pseudo-encryption detection and generation in TypeScript.",
   "keywords": [
     "zip",
