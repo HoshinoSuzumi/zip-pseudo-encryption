@@ -1,9 +1,17 @@
 {
-  "name": "@uniiem/typescript-lib-template",
+  "name": "@uniiem/zip-pseudo-encryption",
   "type": "module",
   "version": "0.0.0",
-  "description": "TypeScript Library Template",
-  "keywords": [],
+  "description": "Zip pseudo-encryption detection and generation in TypeScript.",
+  "keywords": [
+    "zip",
+    "encryption",
+    "pseudo-encryption"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:HoshinoSuzumi/zip-pseudo-encryption.git"
+  },
   "author": "HoshinoSuzumi <master@uniiem.com>",
   "license": "MIT",
   "main": "dist/index.umd.cjs",

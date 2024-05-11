@@ -1,13 +1,9 @@
 # @uniiem/zip-pseudo-encryption
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/HoshinoSuzumi/zip-pseudo-encryption/ci.yml)
-
 ![NPM Downloads](https://img.shields.io/npm/dm/%40uniiem%2Fzip-pseudo-encryption)
-
 ![NPM Version (with dist tag)](https://img.shields.io/npm/v/%40uniiem%2Fzip-pseudo-encryption/latest)
-
 ![npm bundle size](https://img.shields.io/bundlephobia/min/%40uniiem%2Fzip-pseudo-encryption)
-
 ![GitHub License](https://img.shields.io/github/license/HoshinoSuzumi/zip-pseudo-encryption)
 
 Zip pseudo-encryption detection and generation in TypeScript.
